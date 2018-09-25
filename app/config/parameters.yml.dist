@@ -17,3 +17,4 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+    access_token: CLj1xvrgLBICAQEYia2wASCpxO0BKMj1AjIZAJUAHsA4eEkXp90To-cQRnNWi_olxGTeqDoHAAoCQQAADEIZAJUAHsBHsyvD2tBPyLPDvoVml6zP9w1HWw
