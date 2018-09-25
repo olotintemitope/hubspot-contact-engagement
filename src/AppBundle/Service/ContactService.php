@@ -31,11 +31,15 @@ class ContactService implements ContactInterface
      */
     public function fetch($url = Helper::BASE_URL): ?string
     {
-        $response = $this->client
-            ->request('GET', $url, [
-                'headers' => $this->headers
-            ]
-        );
+        try {
+            $response = $this->client
+                ->request('GET', $url, [
+                    'headers' => $this->headers
+                ]
+            );
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
 
         return $response->getBody();
     }
