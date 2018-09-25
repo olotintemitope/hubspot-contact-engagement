@@ -109,18 +109,26 @@ class ContactService implements ContactInterface
 
             $this->contact->getActivities()->clear();
 
-            if (array_key_exists($demoLabel, $sortedContactEngagement) && array_key_exists($closeLabel, $sortedContactEngagement)) {
-                $this->contact->setDate($date);
+            $this->contact->setDate($date);
+
+            $this->contact->setDemoTag($demoLabel);
+            $this->contact->setCloseTag($closeLabel);
+            
+            if (array_key_exists($demoLabel, $sortedContactEngagement)) {
                 $demoLabelCount = $sortedContactEngagement[$demoLabel];
                 $this->contact->setDemoCount($demoLabelCount);
-                $this->contact->setDemoTag($demoLabel);
+            } else {
+                $this->contact->setDemoCount(0);
+            }
 
+            if (array_key_exists($closeLabel, $sortedContactEngagement)) {
                 $closeLabelCount = $sortedContactEngagement[$closeLabel];
                 $this->contact->setCloseCount($closeLabelCount);
-                $this->contact->setCloseTag($closeLabel);
-
-                echo $this->contact->__toString();
+            } else {
+                 $this->contact->setCloseCount(0);
             }
+
+            echo $this->contact->__toString();
         }
     }
 

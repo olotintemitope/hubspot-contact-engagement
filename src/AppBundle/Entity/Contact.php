@@ -188,6 +188,23 @@ class Contact
 
     public function __toString() 
     {
-        return $this->getDate() . ': ' . $this->getDemoTag() . ' ' . $this->getDemoCount() . ', ' . $this->getCloseTag() . ' ' . $this->getCloseCount() . "\n";
+        $demoTag = null;
+        $closeTag = null;
+
+        if ($this->getDemoCount() > 0) {
+            $demoTag = $this->getDemoTag() . ' ' . $this->getDemoCount();
+        }
+
+        if ($this->getCloseCount() > 0) {
+            $closeTag = $this->getCloseTag() . ' ' . $this->getCloseCount();
+        }
+
+        $filteredArray = array_filter([$demoTag, $closeTag], function($var) {
+            return !is_null($var);
+        });
+
+        return $this->getDate() . ': ' . implode(', ',  $filteredArray)  . "\n";
+
+        ;
     }
 }

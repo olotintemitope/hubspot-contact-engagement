@@ -22,7 +22,9 @@
 ``` sh
     ===== Display Statistics =====
     2017-02-07: DEMO 2, CLOSE 1
+    2017-02-09: DEMO 3
     2017-02-13: DEMO 2, CLOSE 2
+    2017-02-08: CLOSE 1
     2017-03-24: DEMO 2, CLOSE 1
     ====== End Of Display ======
 ```
